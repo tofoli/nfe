@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    nfe (0.1.0)
+    nfe-xml (0.0.0)
       nokogiri (~> 1.5)
 
 GEM
@@ -19,7 +19,7 @@ PLATFORMS
 
 DEPENDENCIES
   bundler (~> 1.12)
-  nfe!
+  nfe-xml!
   nokogiri
   rake (~> 10.0)
 
