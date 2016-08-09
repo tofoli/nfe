@@ -1,4 +1,5 @@
 require 'net/http'
+require_relative 'web_service/search_result'
 
 module Nfe
   class Xml

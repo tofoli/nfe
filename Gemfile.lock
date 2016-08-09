@@ -12,16 +12,13 @@ GEM
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
     pkg-config (1.1.7)
-    rake (10.4.2)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  bundler (~> 1.12)
   nfe-xml!
   nokogiri
-  rake (~> 10.0)
 
 BUNDLED WITH
    1.12.5
