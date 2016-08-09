@@ -22,7 +22,7 @@ Or install it yourself as:
 
 On terminal you can use nfe like this:
 ```ruby
-  require 'nfe'
+  require 'nfe-xml'
 
   xml = Nfe::Xml.new('~/nfe.xml')
   xml = Nfe::Xml.new <<-XML
