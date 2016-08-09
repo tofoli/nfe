@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    nfe-xml (0.0.0)
+    nfe-xml (0.1.1)
       nokogiri (~> 1.5)
 
 GEM

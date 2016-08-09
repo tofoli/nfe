@@ -1,3 +1,5 @@
+require 'net/http'
+
 module Nfe
   class Xml
     attr_accessor :result
