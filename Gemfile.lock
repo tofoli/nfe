@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     nfe (0.1.0)
-      nokogiri
+      nokogiri (~> 1.5)
 
 GEM
   remote: https://rubygems.org/
