@@ -1,0 +1,20 @@
+#!/usr/bin/env ruby
+
+$LOAD_PATH.unshift(File.expand_path(File.dirname(__FILE__) + "/../lib"))
+require 'nfe'
+
+if ARGV.count > 0
+  ARGV.each do |file|
+    xml = Nfe::Xml.new(file)
+    puts "#{file}:"
+    puts "  #{xml.valid?}"
+    puts "  Messages:"
+    xml.result.messages.each do |key, msg|
+      puts "    #{key} #{msg}"
+    end
+  end
+else
+  puts 'How to use'
+  puts '  validate ~/nfe.xml'
+  puts '  validate ~/nfe.xml ~/nfe2.xml'
+end
