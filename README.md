@@ -7,7 +7,7 @@ NFe gem validates XML NFe used the site https://www.sefaz.rs.gov.br
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'nfe'
+gem 'nfe-xml'
 ```
 
 And then execute:
