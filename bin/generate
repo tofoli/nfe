@@ -1,0 +1,19 @@
+#!/usr/bin/env ruby
+
+$LOAD_PATH.unshift(File.expand_path(File.dirname(__FILE__) + "/../lib"))
+require 'nfe/danfe'
+
+if ARGV.count > 0
+  ARGV.each do |file|
+    danfe = Nfe::Danfe.new(file)
+    File.open("#{file}.pdf", 'w') do |f|
+      f.write(danfe.pdf)
+    end
+    puts "#{file}:"
+    puts "  Generates file #{file}.pdf"
+  end
+else
+  puts 'How to use'
+  puts '  generate ~/nfe.xml'
+  puts '  generate ~/nfe.xml ~/nfe2.xml'
+end

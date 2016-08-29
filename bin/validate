@@ -1,14 +1,14 @@
 #!/usr/bin/env ruby
 
 $LOAD_PATH.unshift(File.expand_path(File.dirname(__FILE__) + "/../lib"))
-require 'nfe'
+require 'nfe/xml'
 
 if ARGV.count > 0
   ARGV.each do |file|
     xml = Nfe::Xml.new(file)
     puts "#{file}:"
     puts "  #{xml.valid?}"
-    puts "  Messages:"
+    puts '  Messages:'
     xml.result.messages.each do |key, msg|
       puts "    #{key} #{msg}"
     end

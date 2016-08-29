@@ -1,6 +1,6 @@
 # Nfe
 
-NFe gem validates XML NFe used the site https://www.sefaz.rs.gov.br
+NFe gem validates XML NFe used the site https://www.sefaz.rs.gov.br and generates Danfe used the site http://freenfe.com.br/danfe
 
 ## Installation
 
@@ -16,13 +16,13 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install nfe
+    $ gem install nfe-xml
 
 ## Usage
 
 On terminal you can use nfe like this:
 ```ruby
-  require 'nfe-xml'
+  require 'nfe'
 
   xml = Nfe::Xml.new('~/nfe.xml')
   xml = Nfe::Xml.new <<-XML
@@ -36,11 +36,25 @@ On terminal you can use nfe like this:
 
   xml.valid? # Returns boolean
   xml.result.messages # Returns Hash
+  
+  danfe = Nfe::Danfe.new('~/nfe.xml')
+  danfe = Nfe::Danfe.new <<-XML
+    <?xml version="1.0" encoding="utf-8"?>
+    <NFe>
+      .
+      .
+      .
+    </NFe>
+  XML
+  File.open('~/nfe.pdf','w') do |f|
+    f.write(danfe.pdf)
+  end
 ```
 
 You can use from terminal either
 ```bash
     $ validate ~/nfe.xml ~/nfe2.xml
+    $ generate ~/nfe.xml ~/nfe2.xml
 ```
 ## Development
 
@@ -50,7 +64,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/nfe. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/tofoli/nfe. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 
 ## License

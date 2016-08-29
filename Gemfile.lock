@@ -1,13 +1,15 @@
 PATH
   remote: .
   specs:
-    nfe-xml (0.1.1)
+    nfe-xml (0.1.2)
+      multipart-post (~> 2.0.0, >= 2.0.0)
       nokogiri (~> 1.5)
 
 GEM
   remote: https://rubygems.org/
   specs:
     mini_portile2 (2.1.0)
+    multipart-post (2.0.0)
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
@@ -17,6 +19,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  multipart-post
   nfe-xml!
   nokogiri
 
