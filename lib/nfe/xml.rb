@@ -3,7 +3,7 @@ require_relative 'web_service/search_result'
 
 module Nfe
   class Xml
-    attr_accessor :result
+    attr_accessor :result, :open_timeout, :read_timeout
 
     def initialize(xml_or_file)
       xml_or_file = File.read(xml_or_file) if File.exist?(xml_or_file)
@@ -33,6 +33,8 @@ module Nfe
 
       http = Net::HTTP.new(base_uri.host, base_uri.port)
       http.use_ssl = true
+      http.open_timeout = self.open_timeout
+      http.read_timeout = self.read_timeout
       request = Net::HTTP::Post.new(base_uri.request_uri)
       request.set_form_data(txtxml: xml_content)
       @request = http.request(request)

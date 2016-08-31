@@ -3,6 +3,7 @@ require 'tmpdir'
 
 module Nfe
   class Danfe
+    attr_accessor :open_timeout, :read_timeout
 
     def initialize(xml_or_file)
       if File.exist?(xml_or_file)
@@ -21,6 +22,8 @@ module Nfe
       url = URI('http://freenfe.com.br/danfe/?view=1')
 
       http = Net::HTTP.new(url.host, url.port)
+      http.open_timeout = self.open_timeout
+      http.read_timeout = self.read_timeout
       req = Net::HTTP::Post::Multipart.new url.request_uri, nota: UploadIO.new(@xml_or_file, 'text/xml', 'nota.xml')
 
       request = http.request(req)
