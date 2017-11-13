@@ -24,6 +24,24 @@ module Nfe
 
         @msg
       end
+      
+      def errors
+        return @errors if @errors
+        nodes = Nokogiri::HTML(body).css('.tabela_resultado li').to_a
+        @errors   = {}
+
+        nodes[0..2].each do |node|
+          next unless node.to_s.include?('../Imagens/erro.png')
+          @errors[gsub_key(node)] = gsub_message(node)
+        end
+
+        nodes[3].css('ul li').each do |node|
+          next unless node.to_s.include?('../Imagens/erro.png')
+          @errors[gsub_key(node)] = gsub_message(node)
+        end if nodes[3]
+
+        @errors
+      end
 
       private
       def gsub_message(node)
