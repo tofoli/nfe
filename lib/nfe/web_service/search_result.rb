@@ -27,22 +27,23 @@ module Nfe
 
       private
       def gsub_message(node)
+        normalize_node(node).last.force_encoding('utf-8')
+      end
+
+      def gsub_key(node)
+        normalize_node(node).first.force_encoding('utf-8')
+      end
+
+      def normalize_node(node)
         node.to_s.
             gsub(node.css('img').to_s,'').
-            gsub(node.css('b').to_s, '').
             gsub(node.css('a').to_s, '').
             gsub(/\[\]/, '').
             gsub(/^CN=/, '').
             gsub(/<\/?li>/, '').
-            gsub(/\t|\n/, '').
-            strip
-      end
-
-      def gsub_key(node)
-        node.css('b').to_s.
             gsub(/<\/?b>/, '').
             gsub(/\t|\n/, '').
-            strip
+            strip.split(': ')
       end
     end
   end
